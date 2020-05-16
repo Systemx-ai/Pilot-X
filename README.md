@@ -9,7 +9,7 @@
 **Let's solve for X.**
 
 Inspired by Daniel Kahneman's Book- Thinking fast and slow, we have decided to divide self driving into two systems. System 1 and System 2. 
-The X in System X is either 1 or 2 or any infinite number of systems/modes of thought that one can come up with. Whether its the way we react to situations which affect perception or the way others behave that directly has an impact on our 
+The X in System X is either 1 or 2 or any infinite number of systems/modes of thought that one can come up with. Whether its the way a system reacts to perception or the way others/environment behave that directly has an impact on our 
 behaviour. 
 
 #### System 1 and System 2
