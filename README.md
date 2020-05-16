@@ -1,6 +1,9 @@
 ### SystemX
 
-**Let's sove for X, together we will solve self driving.**
+<!-- Alignment options!!!!! -->
+<img align="centre" width="300" height="300" src= "https://github.com/SystemX-ai/SystemX/blob/master/images/logo.png">
+
+**Let's solve for X. Together we will solve self driving.**
 
 Inspired by Daniel Kahneman's Book- Thinking fast and slow, we have decided to divide self driving into two systems. System 1 and System 2. 
 The X in System X is either 1 or 2 or any infinite number of systems/modes of thought that one can come up with. Self driving is an evolving 
