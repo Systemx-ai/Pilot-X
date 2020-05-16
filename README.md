@@ -40,16 +40,12 @@ Examples of things system 2 can do:
 
 ### What do we need to solve in self driving ?
 
-If you are at all familiar with self driving , you have heard of companies like Tesla , Waymo, comma ai , zooks etc and the work
-they have been doing. Elon Musk last year had promised full self driving or FSD. Tesla currently as of this writing (May, 2020) is winning 
-with Level 2 autonomous driving. But, to actually solve self driving , we need to solve or atleast understand how human behaviour works. 
-Human driving is not great, (i.e, if you look at the overall quality of driving). Truly solving self driving will require solving how behviour and
-bias works. (Thats a lot of edge cases..!!). Deep learning on its own isn't going to cut it. We need more. We need a combination of two systems
-that can deliver. System 1 which is automatic and System 2 which is logical and calculating. A combination of these two systems may truely 
-help come close to solving self driving or atleast that's what we like to believe in System X. 
+We already have a self driving car. It's called a taxi. If you are at all familiar with self driving , you have heard of companies like Tesla , Waymo, comma ai  etc and the work they have been doing. Elon Musk last year had promised full self driving or FSD. Tesla currently as of this writing (May, 2020) is winning  with Level 2 autonomous driving. But, to actually solve self driving  , we need to solve or atleast understand how human behaviour works. The Human factor on both ends still remains a challenge. 
+Human driving is not great, (i.e, if you look at the overall quality of driving). Truly solving self driving will require solving how the human factor and bias works. Deep learning is taking care of the fast, automatic aspect but System 1 on its own isn't going to cut it. We need more. We need a combination of two systems
+that can deliver performance. System 1 which is automatic and System 2 which is logical and calculating. Kahneman focuses much of the book on the
+interactions of System 1 and System 2. System 1 can be learnt over time , but System 2 is much more slower. A  
 
-So, you are all welcome to join this extraordinary journey where we try to figure out a combination of System 1 and System 2. The end result can be anything. A fully functioning car, hardware, tools, package, anything..!! 
-
+So, you are all welcome to join this extraordinary journey where we try to figure out a combination of System 1 and System 2 to take self driving to level 5. The end result can be anything.
 
 
 ### Maybe you are asking what happens when X approaches the limit of human intelligence. 
