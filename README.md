@@ -9,7 +9,7 @@
 **Let's solve X.**
 
 Inspired by Daniel Kahneman's Book- Thinking fast and slow, we have decided to divide self driving into two systems. System 1 and System 2. 
-The X in System X is either 1 or 2 or any infinite number of systems/modes of thought that one can come up with. Whether its the way a system reacts to perception or the way others/environment behave that directly has an impact on our 
+The X in System-X is either 1 or 2 or any infinite number of systems/modes of thought that one can come up with. Whether its the way a system reacts to perception or the way others/environment behave that directly has an impact on our 
 behaviour. 
 
 #### System 1 and System 2
@@ -49,6 +49,11 @@ that can deliver performance. System 1 which is automatic and System 2 which is 
 "So, you are all welcome to join this extraordinary journey as we try and figure out a combination of System 1 and System 2 to take self driving to level 5. The end result can be anything...!!"-
 
 
-### Maybe you are thinking what happens when X approaches the limit of human intelligence. 
+**Maybe you are wondering what happens when X approaches the limit of human intelligence.** 
 
 Well in that case, the System converges..!!
+
+
+### LICENSING
+
+Current releases by System-X will be under the MIT License. Some rights will be reserved in the future.
