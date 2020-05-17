@@ -48,9 +48,6 @@ that can deliver performance and safety. Kahneman focuses much of his book on th
 "So, you are all welcome to join this extraordinary journey as we try and figure out a combination of System 1 and System 2 to take self driving to level 5. The end result can be anything...!!"-
 
 
-**Maybe you are wondering what happens when X approaches the limit of human intelligence.** 
-
-Well in that case, the System converges..!!
 
 
 ### LICENSING
