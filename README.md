@@ -48,7 +48,9 @@ that can deliver performance and safety. Kahneman focuses much of his book on th
 "So, you are all welcome to join this extraordinary journey as we try and figure out a combination of System 1 and System 2 to take self driving to level 5. The end result can be anything...!!"-
 
 
+### What are we currently working on ?
 
+(Will be updated soon)
 
 ### LICENSING
 
