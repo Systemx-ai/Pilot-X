@@ -13,3 +13,4 @@ for Self-Driving Cars with Visual Perceptions" has been implemented. Driving dat
 - Opendbc. Using Opendbc (all thanks to comma ai), we can use their preprocessor to create DBC files from a brand DBC file and a model specific DBC file.
   - Model Port:- the car’s brand is already supported, but the specific model, model year or trim isn’t.
   - Brand Port:- Either the car’s brand isn’t supported or the specific car model is substantially different from any currently supported cars.
+- The whole system will be put into a finite state machine.
