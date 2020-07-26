@@ -2,7 +2,7 @@
 
 <!-- Alignment options!!!!! -->
 <p align="center">
-  <img width="460" height="300" src="https://github.com/SystemX-ai/SystemX/blob/master/images/logo.png">
+  <img width="460" height="300" src="https://github.com/SystemX-ai/SystemX-ai.github.io/blob/master/images/logo.png">
 </p>
 
 
