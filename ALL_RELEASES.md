@@ -4,7 +4,7 @@ Currently the V-0.0.0 Beta version consists of self driving controls algorithm. 
 The detailed list of the work that has been currently done on V-0.0.0 Beta are as follows:
 - The base steering model from the paper "End-to-end Multi-Modal Multi-Task Vehicle Control
 for Self-Driving Cars with Visual Perceptions" has been implemented. Driving data was used from Driving in Downtown Chicago video by J_Utah.
--  A localizer comprising of EKF has been used for vehicle localization by using the vehicle dynamics bicycle model as a baseline. 
+-  A EKF localizer has been used for vehicle localization by using the vehicle dynamics bicycle model as a baseline. Extended Kalman Filters are implemented by writing the system's dynamic equations and then calculating the Jacobians for the linearization. The reason being Extended Kalman Filters can model systems by linearizing the non-linear system at every step.
 -  An adaptive Cruise control has been developed from scratch.
 -  Geometric lateral control has been developed using a PI control along with anti-integral windup protection that steers to a position. (Also using the bicycle model as a potential baseline)
 -  For Research - A VAE has been used to learn the hidden representations of a video frame. Instead of using end to end learning in everything, this is an alternative method.    Unlike a traditional autoencoder, a VAE maps the input data into the parameters of a probability distribution, such as the mean and variance of a Gaussian. Next thing to do is to train a RNN with hidden representations (latent vectors) of video frames as inputs . This way the RNN will learn temporal patterns of frames.
