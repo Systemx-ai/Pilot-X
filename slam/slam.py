@@ -4,7 +4,7 @@ import numpy as np
 import pygame
 import tensorflow as tf  
 
-
+import math 
 
 W = 720//4
 H = 1280//4
