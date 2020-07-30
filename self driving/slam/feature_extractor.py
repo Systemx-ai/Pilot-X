@@ -34,7 +34,9 @@ class FeatureExtraction(object):
     # print(feats)
     # print(kps)
 
-    # matching
+    # matching is done here
+
+    
     matches = None
     ret = []
     if self.last is not None:
