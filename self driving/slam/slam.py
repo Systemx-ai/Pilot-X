@@ -1,28 +1,39 @@
 
+
+""" combination  of both slam.py and display.py"""
+
 import cv2
 import numpy as np
 import pygame
-import tensorflow as tf  
+import time 
 
-import math 
 
-W = 720//4
-H = 1280//4
+from display import Display  
 
-pygame.init()
-screen = pygame.display.set_mode((W, H))
 
-surface = pygame.Surface((W,H)).convert()
+W = 640
+H = 360
+
+
+disp = Display(W, H)
+# orb = cv2.ORB_create()
+
+# print(dir(orb))
+
 
 def process_frame(img):
-	img = cv2.resize(img , (W, H))
-	
 
-	surf = pygame.surfarray.make_surface(img).convert()
-	screen.blit(surface, (0, 0))
-	pygame.display.flip()
+  img = cv2.resize(img , (W, H))
+  # kp, des = orb.detectAndCompute(img, None)
 
-	print(img.shape)
+  # for p in kp:
+
+  #   u, v = map(lambda x: int(round(x)), p.pt) 
+
+  #   cv2.circle(img, (u, v), color = (0, 255, 0), radius = 3)
+
+  disp.paint(img)
+  print(img.shape)
 
 if __name__ == '__main__':
 
@@ -40,5 +51,4 @@ while(cap.isOpened()):
 
     process_frame(frame)
   else:
-  	
-
+  	break

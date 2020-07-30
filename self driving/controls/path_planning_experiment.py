@@ -5,8 +5,6 @@
 - class Pathplanning
 - Update """
 
-
-
 import numpy as np  
 
 import math
@@ -26,7 +24,6 @@ def model_polyfit(points, path):
 
 # Indian Road congress (INC)
 V_lane_width = [2.0, 23.5]
-
 
 # https://nptel.ac.in/content/storage2/courses/105101008/downloads/cete_24.pdf
 # Break point of speed
