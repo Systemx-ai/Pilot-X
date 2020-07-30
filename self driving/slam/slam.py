@@ -3,6 +3,7 @@
 """ In hre we have used a feature based slam for tracking imaages from one image to the next image """
 """ The aim here is to write a better orb extractor. First dertect and then compute """
 """  Get the features and the matches """
+""" faeture extractor has been done"""
 
 import cv2
 import numpy as np
@@ -36,7 +37,7 @@ def process_frame(img):
     u2,v2 = map(lambda x: int(round(x)), pt2)
     cv2.circle(img, (u1, v1), color=(0,255,0), radius=3)
     cv2.line(img, (u1, v1), (u2, v2), color=(255,0,0))
-    
+
 
   disp.paint(img)
   print(img.shape)
