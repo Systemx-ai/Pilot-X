@@ -22,8 +22,8 @@ print(dir(orb))
 
 class FeatureExtraction(object):
   #  from geohot
-  X = 8 // 2
-  Y = 6 // 2
+  # X = 8 // 2
+  # Y = 6 // 2
 
   def __init__(self):
     self.orb = cv2.ORB_create(100)
