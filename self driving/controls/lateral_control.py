@@ -32,10 +32,10 @@ def pi_controller(steer_error, max_steer, steer_override, Integral_steer, enable
   	Integral_Unwind = 0.2/rate 
 
   	""" 0.2 per second"""
-	
+	  ## integer 
   	steer_error = desired_offset - actual_Offset
   	Proportional_steer = steer_error * Kp
-  	Integral_steering = steer_error * Ki * 1.0/rate
+  	Integral_steering = steer_error * Ki * 1.0//rate
   	Output_steering = Proportional_steer + Integral_steering
 
   	""" Anti wind up for integrator part"""
