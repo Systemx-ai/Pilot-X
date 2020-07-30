@@ -30,9 +30,8 @@ def process_frame(img):
   print(dir(window))
 
   #draw
-  surf = sdl2.ext.pixels2d(window.get_surface())
-  surf[:] = img.swapaxes(0, 1)[:, :, 0]
-
+  surf = sdl2.ext.pixels3d(window.get_surface())
+  surf[:, :, 0:3] = img.swapaxes(0, 1)
   #blit
   window.refresh()
 

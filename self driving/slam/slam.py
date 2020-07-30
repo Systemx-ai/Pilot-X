@@ -1,6 +1,9 @@
 
 
 """ combination  of both slam.py and display.py"""
+""" In hre we have used a feature based slam for tracking imaages from one image to the next image """
+
+
 
 import cv2
 import numpy as np
@@ -16,21 +19,20 @@ H = 360
 
 
 disp = Display(W, H)
-# orb = cv2.ORB_create()
-
-# print(dir(orb))
+orb = cv2.ORB_create()
+print(dir(orb))
 
 
 def process_frame(img):
 
   img = cv2.resize(img , (W, H))
-  # kp, des = orb.detectAndCompute(img, None)
+  kp, des = orb.detectAndCompute(img, None)
 
-  # for p in kp:
+  for p in kp:
 
-  #   u, v = map(lambda x: int(round(x)), p.pt) 
+    u, v = map(lambda x: int(round(x)), p.pt) 
 
-  #   cv2.circle(img, (u, v), color = (0, 255, 0), radius = 3)
+    cv2.circle(img, (u, v), color = (0, 255, 0), radius = 3)
 
   disp.paint(img)
   print(img.shape)

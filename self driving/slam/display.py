@@ -1,4 +1,4 @@
-""" Refcatored code
+""" Refactored code. To display the code
 """
 import sdl2
 import sdl2.ext
@@ -27,8 +27,8 @@ class Display(object):
         exit(0)
 
     #draw
-    surf = sdl2.ext.pixels2d(self.window.get_surface())
-    surf[:] = img.swapaxes(0, 1)[:, :, 0]
+    surf = sdl2.ext.pixels3d(self.window.get_surface())
+    surf[:, :, 0:3] = img.swapaxes(0, 1)
 
     #blit
     self.window.refresh()
