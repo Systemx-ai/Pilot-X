@@ -9,9 +9,8 @@ import numpy as np
 import pygame
 import time 
 import numpy as np  
-
-
-from display import Display  
+from display import Display
+from feature_extractor import FeatureExtraction  
 
 W = 640
 H = 360
@@ -20,76 +19,24 @@ disp = Display(W, H)
 orb = cv2.ORB_create()
 print(dir(orb))
 
-class FeatureExtraction(object):
-  #  from geohot
-  # X = 8 // 2
-  # Y = 6 // 2
-
-  def __init__(self):
-    self.orb = cv2.ORB_create(100)
-
-    self.Bf =cv2.BFMatcher()
-    self.last = None
-
-  def extract(self, img):
-
-    # detection
-    feats = cv2.goodFeaturesToTrack(np.mean(img, axis =2).astype(np.uint8), 3000, qualityLevel = 0.01, minDistance = 3)
-    
-    #extraction
-    kps = [cv2.KeyPoint(x = f[0][0], y =f[0][1], _size = 20) for  f in feats]
-
-    
-    kps, des = self.orb.compute(img, kps)
-    ## we are getting key points and descriptors
-    # print(feats)
-    # print(kps)
-
-    # matching
-    matches = None
-
-    if self.last is not None:
-
-      matches = self.bf.match(des, self.last['des'])
-
-    
-    return kps, des, matches
-
-
-  """ # run detect in grid: from  geohot
-    y = img.shape[0]//self.X
-    x = img.shape[1]//self.Y
-    akp = []
-
-    for ry in range(0, img.shape[0], y):
-      for rx in range(0, img.shape[1], x):
-
-        img_c = img[ry:ry+y , rx:rx+y]
-        kp = self.orb.detect(img_c, None)
-
-        for p in kp:
-          p.pt = (p.pt[0] + rx, p.pt[1] + ry)
-
-          akp.append(p)
-
-    return akp """
-
 
 fe = FeatureExtraction()
-
 
 
 def process_frame(img):
 
   img = cv2.resize(img , (W, H))
-  kps, des, match = fe.extract(img)
+  matches = fe.extract(img)
   """ kp, des = orb.detectAndCompute(img, None) """
+  
+  print("%d matches" % (len(matches)))
 
-  for p in kps:
+  for pt1, pt2 in matches:
+    u1,v1 = map(lambda x: int(round(x)), pt1)
+    u2,v2 = map(lambda x: int(round(x)), pt2)
+    cv2.circle(img, (u1, v1), color=(0,255,0), radius=3)
+    cv2.line(img, (u1, v1), (u2, v2), color=(255,0,0))
     
-    u, v = map(lambda x: int(round(x)), p.pt) 
-    # u, v = map(lambda x: int(round(x)), p[0]) 
-    cv2.circle(img, (u, v), color = (0, 255, 0), radius = 3)
 
   disp.paint(img)
   print(img.shape)
