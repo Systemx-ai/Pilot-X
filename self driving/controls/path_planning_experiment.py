@@ -64,7 +64,6 @@ def calculate_desired_path(l_poly, r_poly, predicted_poly, l_probability, r_prob
 
 class Pathplanning (object):
 
-
 	def _init(self, model):
 
 
