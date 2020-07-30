@@ -2,7 +2,7 @@
 """ combination  of both slam.py and display.py"""
 """ In hre we have used a feature based slam for tracking imaages from one image to the next image """
 """ The aim here is to write a better orb extractor. First dertect and then compute """
-
+"""  Get the features and the matches """
 
 import cv2
 import numpy as np
@@ -28,11 +28,33 @@ class FeatureExtraction(object):
   def __init__(self):
     self.orb = cv2.ORB_create(100)
 
+    self.Bf =cv2.BFMatcher()
+    self.last = None
+
   def extract(self, img):
 
+    # detection
     feats = cv2.goodFeaturesToTrack(np.mean(img, axis =2).astype(np.uint8), 3000, qualityLevel = 0.01, minDistance = 3)
-    print(feats)
-    return feats
+    
+    #extraction
+    kps = [cv2.KeyPoint(x = f[0][0], y =f[0][1], _size = 20) for  f in feats]
+
+    
+    kps, des = self.orb.compute(img, kps)
+    ## we are getting key points and descriptors
+    # print(feats)
+    # print(kps)
+
+    # matching
+    matches = None
+
+    if self.last is not None:
+
+      matches = self.bf.match(des, self.last['des'])
+
+    
+    return kps, des, matches
+
 
   """ # run detect in grid: from  geohot
     y = img.shape[0]//self.X
@@ -60,13 +82,13 @@ fe = FeatureExtraction()
 def process_frame(img):
 
   img = cv2.resize(img , (W, H))
-  kp = fe.extract(img)
+  kps, des, match = fe.extract(img)
   """ kp, des = orb.detectAndCompute(img, None) """
 
-  for p in kp:
-
-    # u, v = map(lambda x: int(round(x)), p.pt) 
-    u, v = map(lambda x: int(round(x)), p[0]) 
+  for p in kps:
+    
+    u, v = map(lambda x: int(round(x)), p.pt) 
+    # u, v = map(lambda x: int(round(x)), p[0]) 
     cv2.circle(img, (u, v), color = (0, 255, 0), radius = 3)
 
   disp.paint(img)
