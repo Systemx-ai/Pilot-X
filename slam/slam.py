@@ -7,12 +7,12 @@ import tensorflow as tf
 
 
 
+
 W = 720//4
 H = 1280//4
 
 pygame.init()
-screen = pygame.display.set_mode((W, H)).convert()
-
+screen = pygame.display.set_mode((W, H))
 surface = pygame.Surface((W,H)).convert()
 
 def process_frame(img):
