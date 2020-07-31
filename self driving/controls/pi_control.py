@@ -30,28 +30,19 @@ class Picontrol(object):
 
     """ Anti wind up for integrator part"""
 
-    if((steer_error >= 0.0 and (Output_steering < max_steer or Integral_steer < 0.0)) or (steer_error <= 0.0 and (Output_steering > -max_steer or Integral_steer > 0.0))) and not steer_override:
-
-
-
+    if((steer_error >= 0.0 and (Output_steering < max_steer or Integral_steer < 0.0)) or
+        (steer_error <= 0.0 and (Output_steering > -max_steer or Integral_steer > 0.0))) and not steer_override:
       #update integrator
       Integral_steer = Integral_steering
-
-    # unwind integrator if driver is maneuvering the steering wheel
+      # unwind integrator if driver is maneuvering the steering wheel
     elif steer_override:
-
-       Integral_steer -= Integral_Unwind * np.sign(Integral_steer)
+      Integral_steer -= Integral_Unwind * np.sign(Integral_steer)
        # don't run steer control if ego_velocity is low. 
-
-      # still, intergral term should not be bigger than the  limits
+       # still, intergral term should not be bigger than the  limits
        Integral_steer = np.clip(Integral_steer, -max_steer, max_steer)
-
        output_steer = Proportional_steer + Integral_steer
-
        ## Don't run steering control if ego_velocity is low.
-
-      if ego_velocity < 0.2 or not enabled:
-
+       if ego_velocity < 0.2 or not enabled:
         output_steer = 0.0
         Integral_steer = 0.0
 
