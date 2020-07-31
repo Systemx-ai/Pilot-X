@@ -8,7 +8,7 @@
 - pygame
 
 
-### Documentation
+### Documentation :wrench:
 (Needs modification, not final)
 
 
@@ -20,7 +20,20 @@
 - Detection -[Good features to track](https://docs.opencv.org/2.4/modules/imgproc/doc/feature_detection.html#goodfeaturestotrack) this determines the strong corners of the image.
 - Extraction - cv2.Keypoints - The keypoint is characterized by the 2D position, scale (proportional to the diameter of the neighborhood that needs to be taken into account), orientation and some other parameters. The keypoint neighborhood is then analyzed by another algorithm that builds a descriptor (usually represented as a feature vector).
 - Matching is done [here](https://github.com/SystemX-ai/Pilot-X/blob/master/self%20driving/slam/feature_extractor.py#L37) query descriptor index, train descriptor index, train image index, for matching keypoint descriptors
-
-- In computer vision, the fundamental matrix ${\displaystyle \mathbf {F} }\mathbf {F}$  is a 3×3 matrix which relates corresponding points in stereo images. 
+- [Py matcher - opencv](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_feature2d/py_matcher/py_matcher.html)
+- In computer vision, the fundamental matrix F  is a 3×3 matrix which relates how points correspond to each other. We are Using a Fundamental matrix to filter the matches. 
 - The fundamental matrix relates corresponding points between a pair of uncalibrated images. The matrix transforms homogeneous image points in one image to epipolar lines in the other image.
 - Describe why the filter is used, watch the video.
+
+
+![alt_text](https://github.com/SystemX-ai/Pilot-X/blob/master/self%20driving/slam/imgs/img_!.png)
+
+
+
+#### Usage:- 
+
+On python 3.6
+```
+python slam.py
+```
+
