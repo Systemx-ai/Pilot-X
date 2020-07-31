@@ -5,7 +5,6 @@
 import math
 import numpy as np 
 
-
 class Picontrol(object):
 
 	def __init__(self):
@@ -15,22 +14,19 @@ class Picontrol(object):
 		self.desired_offset = 0.0
 		self.Integral_steer = 0.0
 		self.reset()
-
-
-
-	def reset(self):
+  
+  def reset(self):
 
 		self.Integral_steer = 0
-		
-
-	def controller(steer_error, max_steer, steer_override, Integral_steer, enabled, 
+	
+  def controller(steer_error, max_steer, steer_override, Integral_steer, enabled, 
 				 Kp, Ki, rate, actual_Offset, desired_offset):
 
 
   		Integral_Unwind = 0.2/rate 
 
   		""" 0.2 per second"""
-	 	## integer 
+	 	  ## integer 
   		steer_error = desired_offset - actual_Offset
   		Proportional_steer = steer_error * Kp
   		Integral_steering = steer_error * Ki * 1.0//rate
@@ -41,7 +37,7 @@ class Picontrol(object):
 		if((steer_error >= 0.0 and (Output_steering < max_steer or Integral_steer < 0.0)) or 
 	   		(steer_error <= 0.0 and (Output_steering > -max_steer or Integral_steer > 0.0))) and not steer_override:
 
-			#update integrator
+			  #update integrator
     		Integral_steer = Integral_steering
 
   	# unwind integrator if driver is maneuvering the steering wheel
