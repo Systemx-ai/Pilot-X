@@ -24,3 +24,6 @@
 - In computer vision, the fundamental matrix ${\displaystyle \mathbf {F} }\mathbf {F}$  is a 3×3 matrix which relates corresponding points in stereo images. 
 - The fundamental matrix relates corresponding points between a pair of uncalibrated images. The matrix transforms homogeneous image points in one image to epipolar lines in the other image.
 - Describe why the filter is used, watch the video.
+
+
+![alt_text](https://github.com/SystemX-ai/Pilot-X/blob/master/self%20driving/slam/imgs/img_!.png)
