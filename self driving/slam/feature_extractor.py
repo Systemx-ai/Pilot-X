@@ -57,7 +57,7 @@ class FeatureExtraction(object):
                               max_trials=100)
       ret = ret[inliers]
 
-      ## removing the noise.
+      ## resolving the noise.
 
     # return
     self.last = {'kps': kps, 'des': des}
