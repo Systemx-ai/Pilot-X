@@ -1,4 +1,4 @@
-## SLAM 
+## Simultaneous Localization and Mapping(SLAM) 
 
 
 ### Libraries used
