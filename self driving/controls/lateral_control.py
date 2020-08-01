@@ -1,78 +1,137 @@
-# Algorithm, yet to go through proper testing
-""" Algo will go through proper  testing in later versions. 
-	Do not try to test for now. Will be updated with each tag. Geometric lateral Control. Work is loosely based on comma ai 's 
-	lateral control. first calculate the curvature and then  calculate the lookahead distance and then compute the lookahead offset. 
-	Then steer the vehicle to that position by closing the loop using a pi controller. check for integral windup, then steer it to that 
-	position by updating (with anti windup protection).  
-	"""
+## Figuring out the lateral control library
+## No need to do refactoring
+## More cleaning required
 
-
-
+import numpy as np  
 import math
-import numpy as np   
-import matplotlib.pyplot  as   plt 
-from pi_control import controller
 from math import pi
- 
 
-def calculate_curvature(ego_velocity, steer_angle, Car_Parametres, offset_angle = 0):
 
-  degree_to_rad = np.pi/180.0
-
-  steer_angle_rad = (steer_angle - offset_angle) * degree_to_rad
-  curvature = steer_angle_rad/((Car_Parametres.Wheelbase * Car_Parametres.Steering_ratio * 
-                (1 + Car_Parametres.slip_factor * math.pow(max(ego_velocity,2)) )))
-
-  return curvature
 
 def calculate_lookahead(ego_velocity):
 
+	lookahead_offset = 1 ## for deviation purpose
+	lookahead_coefficient = 0.5 ## how much deviation is tolerable
+	lookahead_distance = lookahead_offset + math.sqrt(max(ego_velocity, 0)) * lookahead_coefficient
+	return lookahead_distance
 
-  lookahead_offset = 1.
-  lookahead_coefficient = 4.4
+def calculate_curvature( ego_velocity, Car_Parametres, curr_steering_angle, steering_angle_offset = 0):
 
-  
-""" Calculating the lookahead distance l_d. Geometric 
-  lateral control. (Using the bicycle model) """
+	degree_to_radian = np.pi//180.0
+	steering_angle_rad = (curr_steering_angle - steering_angle_offset) * degree_to_radian
+	curvature = steering_angle_rad//(Car_Parametres.params * math.pow(max(ego_velocity, 2)))
+	return curvature
 
-  lookahead_distance = lookahead_offset + math.sqrt(max(ego_velocity, 0)) * lookahead_coefficient
+def actual_offset(ego_velocity, curr_steering_angle, lookahead_distance, steering_angle_offset):
 
-  return lookahead_distance
-
-def calculate_lookahead_offset(ego_velocity, steer_angle, lookahead_distance, Car_Parametres, offset_angle):
-
-  #this function returns the lateral offset given the steering angle, speed and the lookahead distance
-  
-
-  curvature = calculate_curvature(ego_velocity, steer_angle, Car_Parametres, offset_angle)
-  
-
-    # clip is to avoid arcsin NaNs due to too sharp turns
-  actual_Offset = lookahead_distance * np.tan(np.clip(np.arcsin(lookahead_distance * curvature, -0.999, 0.999)/2))                         
-    return actual_Offset, curvature
+	curvature = calculate_curvature(ego_velocity, lookahead_distance, curr_steering_angle, steering_angle_offset)
+	actual_offset = lookahead_offset + np.tan(np.clip(np.arcsin(lookahead_distance * curvature, -0.999, 0.999)/2))
+	return curvature, actual_offset
 
 
-def update(self, enabled, ego_velocity, steer_angle, steer_override):
+def controller(steering_angle_error, maximum_steering_angle,
+				ego_velocity, Kp, Ki, steering_angle_override, rate, enabled, 
+				steering_angle_disable, desired_offset):
 
-  rate = 100
+	Integral_unwind = 0.2//rate # 0.2 per second
+	offset = actual_offset(ego_velocity, lookahead_distance, steering_angle_offset)
+	steering_angle_error = desired_offset - offset
+	Proportional_steer = Kp * steering_angle_error
+	Integral_steer = Ki * 1.0//rate * steering_angle_error
+	output_steer = Proportional_steer + Integral_steer
 
-    max_steer = 1.0
+	## Anti-Windup for integrator
+	## External actions 
 
-    # how far we look ahead is function of speed
-    lookahead_distance = calculate_lookahead(ego_velocity)
+    if((steering_angle_error >= 0.0 and (output_steer < maximum_steering_angle or Integral_steer < 0.0)) or
+        (steering_angle_error <= 0.0 and (output_steer > -maximum_steering_angle or Integral_steer > 0.0))) and not steering_override:
+      	# update integrator
+      	Integral_steer += Integral_steer
+      	# unwind integrator if driver is operating the steering wheel
 
-    # calculate actual offset at the lookahead point
-    self.actual_Offset, _ = calculate_lookahead_offset(ego_velocity, steer_angle,
-                                                lookahead_distance, Car_Parametres, offset_angle)
+    elif steering_override:
 
-    # desired lookahead offset
-    self.desired_offset = np.polyval(d_poly, lookahead_distance)
+    	Integral_steer -= Integral_Unwind * np.sign(Integral_steer)
+       	# don't run steering control if ego_velocity is low. 
+        # still, intergral term should not be bigger than the  limits
+        Integral_steer = np.clip(Integral_steer, -maximum_steering_angle, maximum_steering_angle)
+        output_steer = Proportional_steer + Integral_steer
+       
+       ## Don't run steering control if ego_velocity is low.
+       if ego_velocity < 0.25 or not enabled:
+        output_steer = 0.0
+        Integral_steer = 0.0
 
-    output_steer  = controller(ego_velocity, self.actual_Offset, self.desired_offset, 
-                              max_steer, steer_override, enabled, 
-                              Car_Parametres.steerKp, Car_Parametres.steerKi, rate)
+    	# Output terms should be bigger than the limits.
+        output_steer = np.clip(output_steer, -maximum_steering_angle, maximum_steering_angle)
 
-    final_steer = np.clip(output_steer, -max_steer, max_steer)
-    return final_steer
+
+    # lateral control fall-back condition
+    lateral_fall_back = False
+    if ((output_steer > maximum_steering_angle or output_steer <= -maximum_steering_angle or ) and (steering_angle_error > 0.0)) 
+    	and ego_velocity > 0.25 and abs(Integral_steer) > 0.0 and lateral_fall_back and not steering_angle_disable:
+  	
+    	#Update integrator
+    	Integral_steer -= Integral_steer
+
+    # Also system can be disabled 
+    elif steering_angle_disable:
+    	lateral_fall_back = True
+    	Integral_steer -= Integral_Unwind * np.sign(Integral_steer)
+    	Integral_steer = np.clip(Integral_steer, -maximum_steering_angle, maximum_steering_angle)
+    	output_steer = Proportional_steer + Integral_steer
+
+    return output_steer, lateral_fall_back
+
+
+class LateralControl(object):
+	def __init(self):
+		self.Proportional_steer = 0.0
+		self.Integral_steer =0.0
+		self.lateral_fall_back = False
+		self.desired_offset = 0.0
+		self.reset()
+
+	def reset(self):
+		self.Integral_steer = 0.0
+
+	def update(self, enabled, degree_poly, Car_Parametres):
+		rate = 100
+
+    	steer_max = 1.0
+
+    	# how far we look ahead is function of speed
+    	lookahead_distance = calculate_lookahead(ego_velocity)
+
+    	# calculate actual offset at the lookahead point
+    	self.actual_offset, _ = actual_offset(curr_steering_angle, ego_velocity, lookahead_distance, 
+    							steering_angle_offset)
+
+    	# desired lookahead offset
+    	self.desired_offset = np.polyval(degree_poly, lookahead_distance)
+
+    	output_steer, self.Proportional_steer, self.Integral_steer, self.lateral_fall_back = controller(ego_velocity, self.actual_offset, 
+    		self.desired_offset, self.Integral_steer, maximum_steering_angle, steering_override, enabled, Car_Parametres.Torque, rate)
+
+    	final_steering_angle = np.clip(output_steer, -maximum_steering_angle, maximum_steering_angle)
+    	return final_steering_angle, lateral_fall_back
+
+    	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
