@@ -27,7 +27,7 @@ BP_lane_width = [0.0, 7.3]
 
 def calculate_desired_path(l_poly, r_poly, predicted_poly, l_probability, r_probability, predicted_probability, speed):
 
-	# we are dealing with discrete dat points, hence interp function. One dimensional piecewise linear interpolant
+	# we are dealing with discrete data points, hence interp function. One dimensional piecewise linear interpolant
 	# centre the weighted average
 	lane_width = interp(V_lane_width, BP_lane_width, speed)
 	## 4 Lane width in india is 23.5m
