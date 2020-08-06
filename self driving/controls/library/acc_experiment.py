@@ -3,46 +3,29 @@ max distance. Accelerate or decelerate to a position using a pi control. Check f
 update - with anti windup protection.
 """
 
-
-
-
 import numpy as np  
-
 import math
-
 from numpy import pi 
 
 def calculate_distance (ego_velocity):
 
 	offset_distance = 1.
 	lateral_coefficient = 4.
-
 	distance = offset_distance + math.sqrt(max(ego_velocity, 0)) * lateral_coefficient
-
-
 	return distance
 
-
 def control_break_pedal(ego_velocity, lateral_acceleration, max_acceleration, Car_parametres, rate):
-
 	
-	max_distance = calculate_distance(ego_velocity, time, Car_parametres)
-	
+	max_distance = calculate_distance(ego_velocity, time, Car_parametres)	
 	break_pedal_position = 0.0
-
-
 	if (distance <= max_distance):
 
 		break_pedal_position += break_pedal_position_max
 		break_pedal_position = break_pedal_position_max
 
-	if (break_pedal_position > 0.0 and (break_pedal_position <= break_pedal_position_max)):
-
-		
+	if (break_pedal_position > 0.0 and (break_pedal_position <= break_pedal_position_max)):		
 		## update deceleration if brakes are activated and calc new ego velocity
-
-		deceleration =- lateral_acceleration
-		
+		deceleration =- lateral_acceleration	
 
 		break_pedal_position = break_pedal_position_max
 
@@ -126,10 +109,6 @@ def pi_controller (max_acceleration, acceleration_error, Kp, Ki, enabled ,accele
 
   	# Output terms should be bigger than the limits.
   	output_acceleration = np.clip(output_acceleration, -max_acceleration, max_acceleration)
-
-
-
-
 
 def reset(self):
 
