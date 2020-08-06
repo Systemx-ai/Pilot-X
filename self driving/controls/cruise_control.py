@@ -1,4 +1,10 @@
 ## Code needs to be fixed. Not final.
+""" Design a cruise control system where the driver's state is taken in as input and then the system performs automated CC.
+Features to be included are: - 1) if the driver is above a certain speed, then turn on CC, otherwise abort. 2) Abortion will remain manual.
+2) the cruise controller needs to perform the following:- 1) regulate during disturbances in road. 2) The controller
+ compensates for these unknowns by measuring the speed
+# of the car and adjusting the throttle appropriately.
+# Device a fall back condition where the driver is ready to take back control at any time manually"""
 
 
 import math
