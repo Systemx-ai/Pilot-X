@@ -29,11 +29,6 @@ class ConvVAE(object):
 		self.generated_images = self.decoder(z)
 		self.generated_images_sigmoid = tf.sigmoid(self.generated_images)
 		generated_images_flat = tf.reshape(self.generated_images, [-1, 64*64*3])
-		
-		# let's calculate the loss
-		'''
-		self.generation_loss = -tf.reduce_sum(input_images_flat * tf.log(1e-8 + generated_images_flat)\
-										 + (1 - input_images_flat) * tf.log(1e-8 + 1 - generated_images_flat), 1)'''
 
 		self.generation_loss = tf.reduce_sum(tf.maximum(generated_images_flat, 0) - generated_images_flat * input_images_flat\
 												 + tf.log(1 + tf.exp(-tf.abs(generated_images_flat))), 1)
