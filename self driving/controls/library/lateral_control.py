@@ -1,6 +1,6 @@
 ## Figuring out the lateral control library
 ## No need to do refactoring
-## More cleaning required
+## More cleaning  is required. Add it in the lateral control library
 
 import numpy as np  
 import math
