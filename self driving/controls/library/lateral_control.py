@@ -6,8 +6,6 @@ import numpy as np
 import math
 from math import pi
 
-
-
 def calculate_lookahead(ego_velocity):
 
 	lookahead_offset = 1 ## for deviation purpose
@@ -114,24 +112,4 @@ class LateralControl(object):
     		self.desired_offset, self.Integral_steer, maximum_steering_angle, steering_override, enabled, Car_Parametres.Torque, rate)
 
     	final_steering_angle = np.clip(output_steer, -maximum_steering_angle, maximum_steering_angle)
-    	return final_steering_angle, lateral_fall_back
-
-    	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    	return  final_steering_angle, lateral_fall_back
