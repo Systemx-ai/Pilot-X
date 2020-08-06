@@ -8,8 +8,8 @@ from math import copysign, sin
 
 def vehicle_update(Car_parametres = {}, SYSTEM_INPUT, x, time):
 	
-	# setting up the system Parametres
-	m = Car_parametres.get('m', 1600.)
+    # setting up the system Parametres
+    m = Car_parametres.get('m', 1600.)
     g = Car_parametres.get('g', 9.8)
     Cr = Car_parametres.get('Cr', 0.01)
     Cd = Car_parametres.get('Cd', 0.32)
@@ -24,7 +24,7 @@ def vehicle_update(Car_parametres = {}, SYSTEM_INPUT, x, time):
 	theta = SYSTEM_INPUT[2]
 
 
-	omega = alpha[int(gear)-1] * ego_velocity      # engine angular speed
+    omega = alpha[int(gear)-1] * ego_velocity      # engine angular speed
     F = alpha[int(gear)-1] * motor_torque(omega, Car_parametres) * throttle
     Fg = m * g * sin(theta)   
     Fr  = m * g * Cr * sign(ego_velocity)
@@ -108,9 +108,3 @@ def update():
 	self.new_cruise = cruise(ego_velocity, rate , reference_velocity, kp, ki, z, sys, SYSTEM_INPUT, x , time)
 	final_cruise = np.clip(new_cruise, -SYSTEM_INPUT_max, SYSTEM_INPUT_max)
 	return final_cruise
-
-
-
-
-
-
