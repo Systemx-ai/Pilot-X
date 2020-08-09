@@ -5,12 +5,10 @@
 #device the decoder
 # Temporary implementation. Not tested yet. #credits go to comma ia's work on opendbc
 # further work needs to be done
-
 import re
 import numpy as np 
 import bitstring
 import collections 
-
 def int_or_float(S):
 
 	try:
@@ -70,7 +68,6 @@ class dbc(object):
 	    	signed = int(data.group(count + 5))
 	    else:
 	    	count = 1
-
 	    self.message[id][1] = DBCSignal.append(signal_name, start_bit, length, endianess
 	    									signed, factor, offset, tmax, tmin, unit) 
 	    # sort the messages w.r.t start bit
