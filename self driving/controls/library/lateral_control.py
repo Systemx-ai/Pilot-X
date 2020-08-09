@@ -66,7 +66,7 @@ def controller(steering_angle_error, maximum_steering_angle,
 
     # lateral control fall-back condition
     lateral_fall_back = False
-    if ((output_steer > maximum_steering_angle or output_steer <= -maximum_steering_angle or ) and (steering_angle_error > 0.0)) 
+    if ((output_steer >= maximum_steering_angle or output_steer <= -maximum_steering_angle or ) and (steering_angle_error > 0.0)) 
     	and ego_velocity > 0.25 and abs(Integral_steer) > 0.0 and lateral_fall_back and not steering_angle_disable:
   	
     	#Update integrator
@@ -74,7 +74,7 @@ def controller(steering_angle_error, maximum_steering_angle,
 
     # Also system can be disabled 
     elif steering_angle_disable:
-    	lateral_fall_back = True
+    	lateral_fall_back = True 
     	Integral_steer -= Integral_Unwind * np.sign(Integral_steer)
     	Integral_steer = np.clip(Integral_steer, -maximum_steering_angle, maximum_steering_angle)
     	output_steer = Proportional_steer + Integral_steer
@@ -109,7 +109,7 @@ class LateralControl(object):
     	self.desired_offset = np.polyval(degree_poly, lookahead_distance)
 
     	output_steer, self.Proportional_steer, self.Integral_steer, self.lateral_fall_back = controller(ego_velocity, self.actual_offset, 
-    		self.desired_offset, self.Integral_steer, maximum_steering_angle, steering_override, enabled, Car_Parametres.Torque, rate)
+    		self.desired_offset, self.Integral_steer, maximum_steering_angle, steering_override, steering_angle_disable enabled, Car_Parametres.Torque, rate)
 
     	final_steering_angle = np.clip(output_steer, -maximum_steering_angle, maximum_steering_angle)
     	return  final_steering_angle, lateral_fall_back
