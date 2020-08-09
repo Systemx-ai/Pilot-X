@@ -16,3 +16,4 @@ Pilot-X is an open source Driver's assistance system (Currently under developmen
 
 ### The state of jobs due to self driving cars
 
+### open questions
