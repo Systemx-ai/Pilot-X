@@ -8,7 +8,7 @@
 
 
 
-- The basic idea
+### The basic idea
 
 The Lateral block implements a look ahead control model to generate normalized steering commands that track a lateral reference displacement. The normalized steering commands can vary between -1 to 1. To model the dynamics, the block uses a linear single track (bicycle) model. Use the Lateral Driver block to:
 
