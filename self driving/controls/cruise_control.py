@@ -23,7 +23,7 @@ def calculate_distance(ego_velocity, lead_velocity):
     return distance
 
 def compute_acceleration_limits(ego_velocity, max_acceleration, min_acceleration, max_breakpoint, min_breakpoint):
-    #set acceleration limit
+    #set acceleration limit #add a few more conditions if possible
     if((max_acceleration > 0.0 or max_breakpoint >= -max_acceleration) and
          (min_acceleration > 0.0 or min_breakpoint <= min_acceleration)):
 
