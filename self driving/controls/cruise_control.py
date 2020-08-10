@@ -1,5 +1,7 @@
 # code needs to be fixed. Not Final
-#do the library
+# do the library
+# calculate the curvature, the distance, limits to acceleration, deceleration, calculate stopping distance.
+# ACC will be built on top of this library.
 
 import numpy as np  
 import math
@@ -14,7 +16,7 @@ def calculate_curvature(ego_velocity, Car_Parametres, steering_angle_offset, cur
 
 def calculate_distance(ego_velocity, lead_velocity):
     #distance between host vehicle and lead vehicle
-    lead_gap = 10
+    lead_gap = 1
     offset_distance = 4
     if(lead_velocity >= ego_velocity and (lead_gap) or 
         (lead_velocity <= ego_velocity) and (lead_gap)):
@@ -33,5 +35,40 @@ def compute_acceleration_limits(ego_velocity, max_acceleration, min_acceleration
         total_breakpoint_min = np.clip(max(ego_velocity), max_breakpoint, -max_breakpoint)
 
     return total_breakpoint_min, total_breakpoint_max, total_acceleration_max, total_acceleration_min
+
+def calculate_deceleration(ego_velocity, lead_gap, lead_velocity):
+
+    critical_acceleration = -max(0.0, ((ego_velocity **2) + (lead_velocity**2))) // (max(2 * (distance)))
+    return critical_acceleration
+
+class CruiseControl(object):
+    def __init(self):
+        self.critical_acceleration = 0.0
+        self.reset()
+
+    def reset(self):
+        self.distance = 0.0
+
+    def update(ego_velocity, curr_steering_angle, Car_Parametres):
+
+        #host to lead vehicle distance as a function of speed
+        host_to_lead_distance= calculate_distance(ego_velocity, lead_velocity)
+        self.calculate_deceleration = calculate_deceleration(ego_velocity, lead_velocity,host_to_lead_distance)
+        self.compute_acceleration_limits = compute_acceleration_limits(ego_velocity, total_breakpoint_max, host_to_lead_disatnce, 
+                                                                    total_acceleration_max, total_breakpoint_max, total_acceleration_min,
+                                                                     total_breakpoint_min)
+
+     
+        final_acceleartion = np.clip(critical_acceleration, -max_acceleration, max_acceleration)
+        return final_acceleartion, host_to_lead_distance
+
+
+# Not final. Code needs to be cleaned up. add calculate stopping distance and update stopping distance
+
+
+
+
+
+
 
 
