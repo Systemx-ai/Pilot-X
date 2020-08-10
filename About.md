@@ -2,7 +2,7 @@
 
 
 We here at System-X are currently working towards perfecting level 2 autonomous driving in India.
-Pilot-X is an open source Driver's assistance system (Currently under development). 
+Pilot-X is an open source Driver's assistance system (Currently under development). This organisation is being developed in good faith to be compliant with the Motor Vehicles Amendment Act(2019) under new section 2B - Promotion of innovation.
 
 ### Goal
 
@@ -19,7 +19,7 @@ A final decision on hiring is yet to be made. Will keep you posted.
 
 - **Is the code published in this repo road legal ?**
 
-As of August 2020, there are no specific laws in India that are designed to effectively assess the functional safety of an ADAS software that makes it applicable to run on Indian roads. There are also no regulations that are currently preventing you(the viewer of this repo) or any other company who wants to build their own ADAS software, install it in their cars and test it on the streets. But, since public safety is of absolute importance, there should be zero compromise on the assessment of functional safety of said ADAS software, even while testing. So, the versions of System-X software that will be compatible with cars (in the future), will be developed following the guidelines proposed by the NHTSA. (that is the only one we found to be detailed and extensive). The code developed by System-X will abide by industry safety standards as prescribed by ISO 26262(international standard for functional safety of electrical and/or electronic systems) and also comply with industry safety standards/guidelines set by the Govt. of India.
+As of August 2020, there are no specific laws in India that can effectively assess the functional safety of an ADAS software which makes it applicable to run on Indian roads. On the flip side, there are also no regulations that are currently preventing you(the viewer of this repo) or any other company who wants to build their own ADAS software, install it in their cars and test it on the streets. But, since public safety is of absolute importance, there should be zero compromise on the assessment of functional safety of said ADAS software, even while testing. So, the succeeding versions of System-X software that will be compatible with cars (in the future), will be developed following the guidelines proposed by the NHTSA. (that is the only one we found to be detailed and extensive). The code developed by System-X will abide by industry safety standards as prescribed by ISO 26262(international standard for functional safety of electrical and/or electronic systems) and also comply with industry safety standards/guidelines set by the Govt. of India.
 
  - If you (indiviual or company) decide to use the code pertaining to Pilot-X to build your own ADAS , please make sure that your use case is in full compliance with the local laws of your state/country and meets the automotive industry standards. If not, then you need to modify the code/build on top of Pilot-X.
 
