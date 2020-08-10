@@ -64,11 +64,3 @@ class CruiseControl(object):
 
 
 # Not final. Code needs to be cleaned up. add calculate stopping distance and update stopping distance
-
-
-
-
-
-
-
-
