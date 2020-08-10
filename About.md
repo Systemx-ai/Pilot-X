@@ -1,7 +1,7 @@
 ### About
 
 We here at System-X are currently working towards perfecting level 2 autonomous driving in India.
-Pilot-X is an open source Driver's assistance system (Currently under development). This organisation is being developed in good faith to be compliant with the Motor Vehicles Amendment Act(2019) under new section 2B - Promotion of innovation.
+Pilot-X is an open source Driver's assistance system (Currently under development). This organisation is being developed in good faith to be compliant with the Motor Vehicles Amendment Act(2019) under insertion of new section 2B - Promotion of innovation.
 
 ### Goal
 
