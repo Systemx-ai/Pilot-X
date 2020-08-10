@@ -61,6 +61,5 @@ class CruiseControl(object):
      
         final_acceleartion = np.clip(critical_acceleration, -max_acceleration, max_acceleration)
         return final_acceleartion, host_to_lead_distance
-
-
+        
 # Not final. Code needs to be cleaned up. add calculate stopping distance and update stopping distance
