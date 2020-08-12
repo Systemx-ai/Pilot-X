@@ -1,8 +1,8 @@
 ### Table of contents
 1. [About](#About)
-2. [Goal](#paragraph1)
-3. [Safety](#subparagraph1)
-4. [Open Questions](### Open questions)
+2. [Goal](#Goal)
+3. [Safety](#Safety)
+4. [Open Questions](#Open questions)
 
 
 ### About
@@ -12,7 +12,7 @@ Pilot-X is an open source Driver's assistance system (Currently under developmen
 
 ### Goal
 
-The goal of System-X is not different from that of comma ai. System-X plans on shipping a cost effective self driving car kit, complete with custom hardware and software and all you have to do is plug in the kit in your car's OBD 2 port and install a few apps in order to get level 2 self driving functionality. Just like Tesla you will receive Over the Air updates on the kit(just like your smart phone) as succesive versions are developed. Hands should be on the wheels at all times and the driver should be ready to take back manual control at any time. And of course, before shipping such a product we are going to make sure that it is in full compliance with the industry guidelines as per the rules set by the Govt of India. 
+The goal of System-X is not different from that of comma ai. System-X plans on shipping a cost effective self driving car kit, complete with the necessary hardware. Anybody who knows how to operate a soldering iron can get the kit up and running in your car and receive level 2 self driving functionality. Just like the Tesla you will receive Over the Air Software updates on the kit(as on your smartphone) as successive versions are developed. Hands should be on the wheels at all times and the driver should be ready to take back manual control at any time. And of course, before shipping such a product we are going to make sure that it is in full compliance with the industry guidelines as per the rules set by the Govt of India. 
 
 ### Safety
 
@@ -27,3 +27,11 @@ As of August 2020, there are no specific laws in India that can effectively asse
 
 
 ### Open questions
+
+1. **Why aren't we building a car ?**
+Answer:- 
+
+2. **Why is the code Open Sourced ?**
+Answer:-
+
+3. 
