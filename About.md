@@ -1,3 +1,11 @@
+# Table of contents
+1. [About](#About)
+2. [Goal](#paragraph1)
+3. [Safety](#subparagraph1)
+3. [State of Jobs due to self driving cars](#paragraph2)
+4. [Open Questions]()
+
+
 ### About
 
 We here at System-X are currently working towards perfecting level 2 autonomous driving in India.
@@ -7,9 +15,6 @@ Pilot-X is an open source Driver's assistance system (Currently under developmen
 
 The goal of System-X is not different from that of comma ai. System-X plans on shipping a cost effective self driving car kit, complete with custom hardware and software and all you have to do is plug in the kit in your car's OBD 2 port and install a few apps in order to get level 2 self driving functionality. Just like Tesla you will receive Over the Air updates on the kit(just like your smart phone) as succesive versions are developed. Hands should be on the wheels at all times and the driver should be ready to take back manual control at any time. And of course, before shipping such a product we are going to make sure that it is in full compliance with the industry guidelines as per the rules set by the Govt of India. 
 
-### Hiring
-
-A final decision on hiring is yet to be made. Will keep you posted.
 
 ### Safety
 
