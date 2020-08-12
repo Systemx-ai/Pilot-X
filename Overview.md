@@ -2,7 +2,7 @@
 1. [About](#About)
 2. [Goal](#Goal)
 3. [Safety](#Safety)
-4. [Open questions](#open-questions)
+4. [Open questions](#Open-questions)
 
 
 ### About :car:
