@@ -2,7 +2,7 @@
 1. [About](#About)
 2. [Goal](#Goal)
 3. [Safety](#Safety)
-4. [Open Questions](#Open questions)
+4. [Open questions](#Open questions)
 
 
 ### About
@@ -29,9 +29,17 @@ As of August 2020, there are no specific laws in India that can effectively asse
 ### Open questions
 
 1. **Why aren't we building a car ?**
+
 Answer:- 
 
+<img src="https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iebhE23A8U.Q/v3/-1x-1.jpg" width="480">
+*Picture: Bloomberg quint*
+
+This is Zoox's self driving car. The picture is pretty much self explanatory. This is their result after raising $800 million. Good thing they got acquired by Amazon..!!
+
+
 2. **Why is the code Open Sourced ?**
+
 Answer:-
 
 3. 
