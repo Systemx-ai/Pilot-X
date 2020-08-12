@@ -30,7 +30,8 @@ As of August 2020, there are no specific laws in India that can effectively asse
 
 1. **Why aren't we building a car ?**
 
-<img src="https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iebhE23A8U.Q/v3/-1x-1.jpg" width="480">
+<!-- Alignment options!!!!! -->
+<img align="centre" width="400" height="300" src="https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iebhE23A8U.Q/v3/-1x-1.jpg">
 
 *Picture: Bloomberg quint*
 
