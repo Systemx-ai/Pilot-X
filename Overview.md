@@ -1,8 +1,8 @@
 ### Table of contents :page_facing_up:
-1. [About](#About)
-2. [Goal](#Goal)
-3. [Safety](#Safety)
-4. [Open questions](#Open-questions)
+1. [About](#About-car)
+2. [Goal](#Goal-rocket)
+3. [Safety](#Safety-oncoming_automobile)
+4. [Open questions](#Open-questions-question)
 
 
 ### About :car:
