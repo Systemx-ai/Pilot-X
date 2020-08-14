@@ -39,3 +39,5 @@ This is why :point_down:
 This is Zoox's self driving car. The picture is pretty much self explanatory. This is their result after raising $800 million. Good thing they got acquired by Amazon..!!
 
 **Why is the code Open Sourced ?**
+
+The quicker answer is that we are going to need help. You can make pull requests for the code and also later on down the road, we are going to need your help to support the  cars. We haven't begun to test the code on cars yet, it is still in the development phase. We are going to add build on top on opendbc by comma ai and add support for model ports and brand ports. We also need your help to build a better vision system which is in the plans for the year 2021. This year we are going to focus mostly on perfecting the ACC, LKAS and driver monitoring and the hardware.
