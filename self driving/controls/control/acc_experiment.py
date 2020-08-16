@@ -2,7 +2,6 @@
 max distance. Accelerate or decelerate to a position using a pi control. Check for integral windup and accelerate to that position by updating
 update - with anti windup protection.
 """
-
 import numpy as np  
 import math
 from numpy import pi 
