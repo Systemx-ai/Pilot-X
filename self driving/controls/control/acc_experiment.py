@@ -40,7 +40,6 @@ def control_break_pedal(ego_velocity, lateral_acceleration, max_acceleration, Ca
 
 	return deceleration
 
-
 def control_gas_pedal(ego_velocity, lateral_acceleration, enabled,  max_acceleration, Car_parametres):
 
 	gas_pedal_position = 0.0
@@ -69,10 +68,7 @@ def control_gas_pedal(ego_velocity, lateral_acceleration, enabled,  max_accelera
 
 	return new_acceleration
 
-
 def pi_controller (max_acceleration, acceleration_error, Kp, Ki, enabled ,acceleration_override, rate):
-
-
 
 	Integral_unwind = 0.2/rate
 
@@ -114,7 +110,6 @@ def reset(self):
 
 	self. Integral_accln = 0
 
-
 def update(self, enabled, ego_velocity, lateral_acceleration, acceleration_override):
 
 	rate = 100
@@ -138,7 +133,3 @@ def update(self, enabled, ego_velocity, lateral_acceleration, acceleration_overr
 
     final_acceleration = np.clip(output_acceleration, -max_acceleration, max_acceleration)
     return  final_acceleration
-
-
-
-
