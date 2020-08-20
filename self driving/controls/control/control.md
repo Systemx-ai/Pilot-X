@@ -21,6 +21,11 @@ Perception - > path planning -> output.
 
 Let's break down each of these.
 - Perception:- Visual perception is required for a better understanding of the driving scene. Cars move, trees and buildings don't and we can device the categories accordingly. You train seg nets. Based on the ground truthing of the frames, we can create a better localizer. 
+  - Inputs:- Camera images (dimensions x RGB X temporal)
   - Loss function:- the loss function that is commonly used in seg nets is pixel wise cross entropy loss.This loss function examines each pixel indiviually. log loss summed over all possible classes.
   - Outputs -> probability from seg nets. Outputs can range from obj detection, trajectory generation, driving scene etc.
-  - 
+
+- Path Planning
+
+- Output
+  
