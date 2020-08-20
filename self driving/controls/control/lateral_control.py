@@ -109,7 +109,7 @@ class LateralControl(object):
     	self.desired_offset = np.polyval(degree_poly, lookahead_distance)
 
     	output_steer, self.Proportional_steer, self.Integral_steer, self.lateral_fall_back = controller(ego_velocity, self.actual_offset, 
-    		self.desired_offset, self.Integral_steer, maximum_steering_angle, steering_override, steering_angle_disable, enabled, Car_Parametres.Torque, rate)
+    		self.desired_offset, self.Integral_steer, maximum_steering_angle, steering_override, steering_angle_disable, enabled, Car_Parametres.params, rate)
 
     	final_steering_angle = np.clip(output_steer, -maximum_steering_angle, maximum_steering_angle)
     	return  final_steering_angle, lateral_fall_back
