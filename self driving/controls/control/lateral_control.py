@@ -8,7 +8,7 @@ from math import pi
 
 def calculate_lookahead(ego_velocity):
 
-	lookahead_offset = 1 ## for deviation purpose
+	lookahead_offset = 1 ## vertical distance from the initial tangent to a point on the curve
 	lookahead_coefficient = 0.5 ## how much deviation is tolerable
 	lookahead_distance = lookahead_offset + math.sqrt(max(ego_velocity, 0)) * lookahead_coefficient
 	return lookahead_distance
@@ -51,7 +51,7 @@ def controller(steering_angle_error, maximum_steering_angle,
 
     	Integral_steer -= Integral_Unwind * np.sign(Integral_steer)
        	# don't run steering control if ego_velocity is low. 
-        # still, intergral term should not be bigger than the  limits
+        # Also intergral term should not be bigger than the  limits
         Integral_steer = np.clip(Integral_steer, -maximum_steering_angle, maximum_steering_angle)
         output_steer = Proportional_steer + Integral_steer
        

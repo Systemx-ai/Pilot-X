@@ -17,7 +17,7 @@ def calculate_curvature(ego_velocity, Car_Parametres, steering_angle_offset, cur
 def calculate_distance(ego_velocity, lead_velocity):
     #distance between host vehicle and lead vehicle
     lead_gap = 1
-    offset_distance = 4
+    offset_distance = 4  # vertical distance from the initial tangent to a point on the curve
     if(lead_velocity >= ego_velocity and (lead_gap) or 
         (lead_velocity <= ego_velocity) and (lead_gap)):
         distance = offset_distance + (lead_gap * lead_velocity)
@@ -39,6 +39,7 @@ def compute_acceleration_limits(ego_velocity, max_acceleration, min_acceleration
 def calculate_deceleration(ego_velocity, lead_gap, lead_velocity):
 
     critical_acceleration = -max(0.0, ((ego_velocity **2) + (lead_velocity**2))) // (max(2 * (distance)))
+    #constant deceleration
     return critical_acceleration
 
 class CruiseControl(object):
@@ -63,3 +64,4 @@ class CruiseControl(object):
         return final_acceleartion, host_to_lead_distance
         
 # Not final. Code needs to be cleaned up. add calculate stopping distance and update stopping distance
+# https://korkortonline.se/en/theory/reaction-braking-stopping/#:~:text=Formula%3A%20Remove%20the%20zero%20from,researchers%20measuring%20the%20braking%20distance.
