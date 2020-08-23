@@ -35,6 +35,7 @@ def calculate_desired_path(l_poly, r_poly, predicted_poly, l_probability, r_prob
 	# 0.5/100 because half lane. Calculate centre poly, centre probability
 	if l_probability + r_probability > 0.01:
 
+		# poly is for centering and scaling values
 		centre_poly = (((l_poly - half_lane) * l_probability) + ((r_poly - half_lane ) * r_probability))/ (l_probability + r_probability)
 		centre_probability = math.sqrt (l_probability**2 - r_probability**2, 2.0)
 	else:
