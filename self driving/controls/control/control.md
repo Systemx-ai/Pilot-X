@@ -26,7 +26,7 @@ Let's break down each of these.
   - Outputs -> probability from seg nets. Outputs can range from obj detection, trajectory generation, driving scene etc.
 
 - Path Planning
-  - Understnding the physics behind the trajectory planning, the physics behind lateral offset, curvature, lookahead distance from the geometric vehicle mo0del. We are taking the weighted average of the lane widths.
+  - Understnding the physics behind the trajectory planning, the physics behind lateral offset, curvature, lookahead distance from the geometric vehicle mo0del. We are taking the weighted average of the lane width,  both left and right.
   - Inputs:- Camera images , desired set points. A way to do that is either by Model Predictive control or by fine tuning the closed loop feedback system at each timestep.
   - Ouputs:- optimize and steer to the desired point. Use a PI or a PID controller. You can also use an LQR as a backup. The output is the desired steering angle, lookahead distance, optimum trajectory. 
 
