@@ -39,6 +39,7 @@ def compute_probability(speed, left_polyfit, right_polyfit):
 	return desired_polyfit, centre_probability, centre_polyfit
 
 def compute_predicted_path():
+
 	X_path_probability = compute_probability(desired_polyfit, centre_polyfit, centre_probability)
 	predicted_path = list((X_path_probability * left_path_weight + X_path_probability * right_path_weight) / 
     					(right_path_weight + left_path_weight))
@@ -46,21 +47,18 @@ def compute_predicted_path():
 
 class Pathplanning(object):
 
-	def _init(self, model):		
-        self.model = model
+	def _init(self, model):
+		self.model = model
 		self.d_poly = [0., 0., 0., 0.]
-    	self._path_predicted = compute_predicted_path()
+		self._path_predicted = compute_predicted_path()
 
-     def update(self, ego_velocity):
-
-        centre_polyfit = model_polyfit(model.points, self._path_predicted)       # predicted path
-        left_polyfit = model_polyfit(model.points,self._path_predicted)   # left line
-        right_polyfit = model_polyfit(model.points, self._path_predicted)  # right line
-
-        predicted_probability = 1.  # model does not tell this probability yet, so set to 1 for now
-        l_probability = compute_probability(left_path_weight, model.predicted_probability)   # left line prob
-        r_probability = compute_probability(right_path_weight, model.predicted_probability) # right line prob
-
-        # compute target path
-        self.desired_polyfit, _, _ = calculate_predicted_path(left_polyfit, right_polyfit, predicted_polyfit, l_probability, r_probability, 
+	def update(self, ego_velocity):
+		centre_polyfit = model_polyfit(model.points, self._path_predicted)
+		left_polyfit = model_polyfit(model.points,self._path_predicted)
+		right_polyfit = model_polyfit(model.points, self._path_predicted)
+		predicted_probability = 1.
+		l_probability = compute_probability(left_path_weight, model.predicted_probability)
+		r_probability = compute_probability(right_path_weight, model.predicted_probability)
+		self.desired_polyfit, _, _ = calculate_desired_path(left_polyfit, right_polyfit, predicted_polyfit, l_probability, r_probability, 
         													predicted_probability, ego_velocity)
+		

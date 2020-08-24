@@ -40,34 +40,33 @@ def calculate_desired_path(l_poly, r_poly, predicted_poly, l_probability, r_prob
 		# poly is for centering and scaling values
 		centre_polyfit = (((l_poly - half_lane) * l_probability) + ((r_poly - half_lane ) * r_probability))/ (l_probability + r_probability)
 		centre_probability = math.sqrt (l_probability**2 - r_probability**2, 2.0)
+
 	else:
 
 		centre_polyfit = np.zeros(4.0)
-		centre_probability = 0. 
-
-    path_weight = 1.
-
-    desired_poly = list((centre_polyfit * centre_probability * path_weight + predicted_probability * predicted_poly) / 
-    					(centre_probability + path_weight * predicted_poly))
+		centre_probability = 0.
+    	
+    path_weight = 1.0
+    desired_poly = list((centre_polyfit * centre_probability * path_weight + predicted_probability * predicted_poly)/(centre_probability + path_weight * predicted_poly))
 
     return desired_poly, centre_probability, centre_polyfit
 
 class Pathplanning(object):
 
 	def _init(self, model):		
-        self.model = model ##assuming for now
+        self.model = model ## assuming for now
 		self.d_poly = [0., 0., 0., 0.]
     	self._path_comp = compute_path()
 
      def update(self, ego_velocity):
 
-        predicted_polyfit = model_polyfit(model.points, self._path_predicted)       # predicted path
-        left_polyfit = model_polyfit(model.points,self._path_predicted)   # left line
-        right_polyfit = model_polyfit(model.points, self._path_predicted)  # right line
+        predicted_polyfit = model_polyfit(model.points, self._path_predicted)# predicted path
+        left_polyfit = model_polyfit(model.points,self._path_predicted)# left line
+        right_polyfit = model_polyfit(model.points, self._path_predicted)# right line
 
         predicted_probability = 1.  # model does not tell this probability yet, so set to 1 for now
-        l_probability =  model.predicted_probability   # left line prob
-        r_probability =  model.predicted_probability # right line prob
+        l_probability = model.predicted_probability   # left line prob
+        r_probability = model.predicted_probability # right line prob
 
         # compute target path
         self.desired_polyfit, _, _ = calculate_desired_path(left_polyfit, right_polyfit, predicted_polyfit, l_probability, r_probability, 
