@@ -1,12 +1,12 @@
-##  SystemX ::wrench:
+##  System (x) ::wrench:
 
 <!-- Alignment options!!!!! -->
 <p align="center">
-  <img width="460" height="300" src="https://github.com/SystemX-ai/SystemX-ai.github.io/blob/master/images/logo.png">
+  <img width="460" height="460" src="https://img.icons8.com/all/500/variable.png">
 </p>
 
 
-**Let's solve X.**
+**Let's solve x.**
 
 Inspired by Daniel Kahneman's Book- Thinking fast and slow, we have decided to divide self driving into two systems. System 1 and System 2. 
 The X in System-X is either 1 or 2 or any infinite number of systems/modes of thought that one can come up with.
@@ -40,7 +40,7 @@ Examples of things system 2 can do:
 
 ### What do we need to solve in self driving ?
 
-**Goal for System-X**
+**Goal for System-(x)**
 
 > We already have a self driving car. It's called a taxi. If you are at all familiar with self driving , you have heard of companies like Tesla , Waymo, comma ai  etc and the work they have been doing. Elon Musk last year had promised full self driving or FSD. Tesla currently as of this writing (May, 2020) is winning  with Level 2 autonomous driving. But, to actually solve self driving (here in India) , we need to solve or atleast understand how human behaviour works. The Human factor on both ends still remains a challenge, and that can be attributed to several factors. Right now, whatever you see in level 2 development is System 1. We here at System-X will improve System 1 and Build System 2.  Human driving is not great, (i.e, if you look at the average quality of driving). Good drivers and Bad drivers can be seperated into clusters. Solving a system 2 problem, will require an understanding of human bias/intention. Also, the bias of system 1 can be overruled by System 2. Deep learning is taking care (perception problems) of the fast, automatic aspect but System 1 on its own isn't going to be enough. To get to Level 5 , we need more. We need a combination or a connection of two systems . System 1 can be learned over time , but System 2 is much more slower, making it difficult to attain. The problem of Static Driving can be solved by system 1 , but solving dynamic driving and human intention will require system 2.
 
