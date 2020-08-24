@@ -45,9 +45,10 @@ def calculate_desired_path(l_poly, r_poly, predicted_poly, l_probability, r_prob
 
 		centre_polyfit = np.zeros(4.0)
 		centre_probability = 0.
-    	
-    path_weight = 1.0
-    desired_poly = list((centre_polyfit * centre_probability * path_weight + predicted_probability * predicted_poly)/(centre_probability + path_weight * predicted_poly))
+	path_weight = 1.0   	
+
+    desired_poly = list((centre_polyfit * centre_probability * path_weight + predicted_probability * predicted_poly)/
+   						(centre_probability + path_weight * predicted_poly))
 
     return desired_poly, centre_probability, centre_polyfit
 

@@ -39,7 +39,6 @@ def compute_probability(speed, left_polyfit, right_polyfit):
 	return desired_polyfit, centre_probability, centre_polyfit
 
 def compute_predicted_path():
-
 	X_path_probability = compute_probability(desired_polyfit, centre_polyfit, centre_probability)
 	predicted_path = list((X_path_probability * left_path_weight + X_path_probability * right_path_weight) / 
     					(right_path_weight + left_path_weight))
