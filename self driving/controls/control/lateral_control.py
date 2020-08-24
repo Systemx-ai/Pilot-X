@@ -7,6 +7,7 @@ import numpy as np
 import math
 from math import pi
 
+# sort of a pure pursuit path
 def calculate_lookahead(ego_velocity):
 
 	lookahead_offset = 1 ## vertical distance from the initial tangent to a point on the curve

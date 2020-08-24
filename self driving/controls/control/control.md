@@ -30,5 +30,14 @@ Let's break down each of these.
   - Inputs:- Camera images , desired set points. A way to do that is either by Model Predictive control or by fine tuning the closed loop feedback system at each timestep.
   - Ouputs:- optimize and steer to the desired point. Use a PI or a PID controller. You can also use an LQR as a backup. The output is the desired steering angle, lookahead distance, optimum trajectory. 
 
-- Output
+  For long control -> input driver state, output -> gas, brakes, throttle. Understanding the kinematics.
+
+Path planning idea:
+
+A couple of assumptions:- let's assume that we have the probabilities from the seg net that can determine where the drivable area is. It is within that drivable area that we need to search exactly where the lead car is. 
+
+A few ways in which it can be done is as follows:- 
+1) map representations: we are already assuming that the car is aware of its location within the map and is able to localize itself and avoid obstacles along the way. There are A* and other path planning algorithms.
+2) Another way is without the map. The car needs to determine where the lead car is and then using the lane widths , it can locate its own position / guess its own position and using these positions, the car needs to guess the desired path that it should follow.
+3) Assign weights to both left and right lanes. Compute their probability w r t centre lane. from centre lane calculate the desired path.
   
