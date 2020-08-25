@@ -30,7 +30,7 @@ Let's break down each of these.
   - Inputs:- Camera images , desired set points. A way to do that is either by Model Predictive control or by fine tuning the closed loop feedback system at each timestep.
   - Ouputs:- optimize and steer to the desired point. Use a PI or a PID controller. You can also use an LQR as a backup. The output is the desired steering angle, lookahead distance, optimum trajectory. 
 
-  For long control -> input driver state, output -> gas, brakes, throttle. Understanding the kinematics.
+  For long control -> input driver state, output -> gas, brakes, throttle. Kinematics
 
 Path planning idea:
 
