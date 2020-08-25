@@ -5,7 +5,6 @@ from numpy import interp
 
 # # take the discrete points in as input
 # path = np.arange(20)
-
 # degree = 4 # 4 degree curve
 
 def model_polyfit():
@@ -20,12 +19,10 @@ V_lane_width = [2.0, 23.5]
 # Break point of speed
 BP_lane_width = [0.0, 7.3]
 
-
-def compute_probability(speed, left_polyfit, right_polyfit, l_probability, r_probability):
-	
+def compute_probability(speed, left_polyfit, right_polyfit, l_probability, r_probability):	
 	
 	lane_width = interp(V_lane_width, BP_lane_width, speed)
-	print(lane_width)
+	# print(lane_width)
 	half_lane = np.array([0. , 0., 0., lane_width // 2.])
 	left_path_weight = 1.
 	right_path_weight = 1.
