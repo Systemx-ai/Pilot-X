@@ -23,6 +23,8 @@ The goal of System-(x).ai is not different from that of comma ai or Tesla. Syste
 
 As of August 2020, there are no specific laws in India that can effectively assess the functional safety of an ADAS software which makes it applicable to run on Indian roads. On the flip side, there are also no regulations that are currently regulating you(the viewer of this repo) or any other company who wants to build their own ADAS software, install it in their cars and test it on the streets. But, since public safety is of absolute importance, there should be zero compromise on the assessment of functional safety of said ADAS software, even while testing. So, the succeeding versions of System-(x).ai software that will be compatible with cars (in the future), will be developed following the guidelines proposed by the NHTSA. Find the pdf [here](https://www.nhtsa.gov/sites/nhtsa.dot.gov/files/documents/13498a_812_573_alcsystemreport.pdf)(that is the only one we found to be detailed and extensive). The code developed by System-(x).ai will abide by industry standards as prescribed by ISO 26262(international standard for functional safety of electrical and/or electronic systems) and also comply with industry safety standards/guidelines set forth by the Govt. of India. Unlike comma ai which has panda to make this determination, we have to figure out a new way to do it.
 
+- Types of safety
+
 
 ### Open questions :question:
 **Why aren't we building a car ?**
