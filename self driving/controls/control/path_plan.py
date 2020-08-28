@@ -104,8 +104,3 @@ class Pathplanning(object):
 # 						centre_polyfit * centre_probability * left_path_weight)/((centre_probability + left_polyfit * left_path_weight + right_polyfit * right_path_weight))
 
 # 	print(desired_polyfit)"""
-
-
-
-
-
