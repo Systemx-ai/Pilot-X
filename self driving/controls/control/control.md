@@ -40,4 +40,6 @@ A few ways in which it can be done is as follows:-
 1) map representations: we are already assuming that the car is aware of its location within the map and is able to localize itself and avoid obstacles along the way. There are A* and other path planning algorithms.
 2) Another way is without the map. The car needs to determine where the lead car is and then using the lane widths , it can locate its own position / guess its own position and using these positions, the car needs to guess the desired path that it should follow.
 3) Assign weights to both left and right lanes. Compute their probability w r t centre lane. from location calculate the desired path.
+
+Lateral control
   

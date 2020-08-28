@@ -9,4 +9,9 @@ Path Planning
 - BUG FIX - the weighted average gets into weird issues during interpolation.
 - Find a clever way to compute the predicted path.
 - speed and model needs to be set.
-- BUG FIX - half lane array has some issues with the output.
+ 
+#### FIXED: :heavy_check_mark:
+ - way to do path planning
+ - desired_polyfit and centre_probability consistent with test passing. 
+ - Type Error fixed.
+

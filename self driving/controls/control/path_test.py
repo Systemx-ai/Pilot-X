@@ -1,8 +1,10 @@
 # Not consistent with test passing. Subject to change
+# consistent test passing in compute_probability, model_polyfit
 
 import numpy as np  
 import path_plan
-from path_plan import compute_probability 
+from path_plan import compute_probability
+from path_plan import compute_predicted_path
 from path_plan import model_polyfit
 from numpy import interp
 import sys
@@ -18,14 +20,22 @@ def main():
 	lane_width = interp(V_lane_width, BP_lane_width, speed)
 	half_lane = np.array([0. , 0., 0., lane_width // 2.])
 	print(lane_width, half_lane)
-	left_path_weight = 1.
-	right_path_weight = 1.
+
 	l_probability = 0.006
-	r_probability = 0.123
+	r_probability = 0.12223
 	left_polyfit = 0.1
 	right_polyfit = 0.22
+	path = np.arange(20.0) 
+	# take the discrete points in as input
+	# take the discrete points in as input
+	points = np.arange(20.0)
+
 	ss = compute_probability(speed, left_polyfit, right_polyfit, l_probability, r_probability)
+	sp = model_polyfit(path, points)
+	
 	print(ss)
+	print(sp)
+
 
 if __name__ == '__main__':
 	 main()

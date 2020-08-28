@@ -3,15 +3,12 @@ import math
 from math import pi 
 from numpy import interp
 
-# # take the discrete points in as input
-# path = np.arange(20)
-# degree = 4 # 4 degree curve
-
-def model_polyfit():
-	path = np.arange(20)
+def model_polyfit(path, points):
+	
 	degree = 4 # 4 degree curve
-	poly = np.polyfit(path, degree)
+	poly = np.polyfit(path, list(points), 4)
 	return poly
+	
 
 # Indian Road congress (INC)
 V_lane_width = [2.0, 23.5]
@@ -30,17 +27,18 @@ def compute_probability(speed, left_polyfit, right_polyfit, l_probability, r_pro
 		# polyfit is for centreing and scaling
 		centre_polyfit = (((left_polyfit - half_lane ) * l_probability) 
 						+ (right_polyfit - half_lane) * r_probability)/ (l_probability + r_probability)
-		centre_probability = centre_probability = np.sqrt (l_probability**2 - r_probability**22.0)
+		centre_probability = np.sqrt (l_probability**2 + r_probability**2/2.0)
+
 	else:
 		centre_probability = 0.0
-		centre_polyfit = np.zeros(4.0)
+		centre_polyfit = np.zeros(4)
 
 	desired_polyfit = (centre_polyfit * centre_probability * right_path_weight  + 
  						centre_polyfit * centre_probability * left_path_weight)/((centre_probability + left_polyfit * left_path_weight + right_polyfit * right_path_weight))
-	return desired_polyfit, centre_probability, centre_polyfit
+	return centre_probability, desired_polyfit, centre_polyfit
 
 def compute_predicted_path():
-	X_path_probability = compute_probability(desired_polyfit, centre_polyfit, centre_probability)
+	X_path_probability = model_polyfit(poly)
 	predicted_path = list((X_path_probability * left_path_weight + X_path_probability * right_path_weight) / 
     					(right_path_weight + left_path_weight))
 	return predicted_path
@@ -59,11 +57,18 @@ class Pathplanning(object):
 		predicted_probability = 1.
 		l_probability = compute_probability(left_path_weight, predicted_probability)
 		r_probability = compute_probability(right_path_weight, predicted_probability)
-		self.desired_polyfit, _, _ = calculate_desired_path(left_polyfit, right_polyfit, predicted_polyfit, l_probability, r_probability, 
+		self.desired_polyfit, _, _ = compute_predicted_path(left_polyfit, right_polyfit, predicted_polyfit, l_probability, r_probability, 
         													predicted_probability, ego_velocity)
 
 		return self.desired_polyfit
 		
+# take the discrete points in as input
+# path = np.arange(20)
+# points = np.arange(20)
+# degree = 4.0 # 4 degree curve
+# poly = np.polyfit(path, list(points), degree)
+# print(poly)
+
 
 """# import numpy as np 
 # import math
@@ -91,7 +96,7 @@ class Pathplanning(object):
 # left_path_weight = 1.
 # right_path_weight = 1.
 # l_probability = 0.006
-# r_probability = 0.123
+# r_probability = 0.12223
 # left_polyfit = 0.1
 # right_polyfit = 0.22
 # if l_probability + r_probability > 0.01:
@@ -109,8 +114,8 @@ class Pathplanning(object):
 # 	desired_polyfit = (centre_polyfit * centre_probability * right_path_weight  + 
 # 						centre_polyfit * centre_probability * left_path_weight)/((centre_probability + left_polyfit * left_path_weight + right_polyfit * right_path_weight))
 
-# 	print(desired_polyfit)
-"""
+# 	print(desired_polyfit)"""
+
 
 
 
