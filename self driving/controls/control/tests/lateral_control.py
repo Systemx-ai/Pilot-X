@@ -15,19 +15,18 @@ def calculate_lookahead(ego_velocity):
 	lookahead_distance = lookahead_offset + math.sqrt(max(ego_velocity, 0)) * lookahead_coefficient
 	return lookahead_distance
 
-def calculate_curvature( ego_velocity, Car_Parametres, curr_steering_angle, steering_angle_offset = 0):
+def calculate_curvature(ego_velocity, curr_steering_angle):
 
-	degree_to_radian = np.pi//180.0
-	steering_angle_rad = (curr_steering_angle - steering_angle_offset) * degree_to_radian
-	curvature = steering_angle_rad//(Car_Parametres.params * math.pow(max(ego_velocity, 2)))
-	return curvature
+    steering_angle_offset = 0.0
+    steering_angle_rad = (curr_steering_angle - steering_angle_offset) * np.radians(curr_steering_angle)
+    curvature = (steering_angle_rad // (math.pow(ego_velocity, 2)))
+    return curvature
 
 def actual_offset(ego_velocity, curr_steering_angle, lookahead_distance, steering_angle_offset):
-    
-    curvature = calculate_curvature(ego_velocity, lookahead_distance, curr_steering_angle, steering_angle_offset)
+    lookahead_offset = 1.0
+    curvature = calculate_curvature(ego_velocity, curr_steering_angle)
     actual_offset = lookahead_offset + np.tan(np.clip(np.arcsin(lookahead_distance * curvature, -0.999, 0.999)/2))
     return curvature, actual_offset
-
 
 def controller(steering_angle_error, maximum_steering_angle,
 				ego_velocity, Kp, Ki, steering_angle_override, rate, enabled, 
@@ -39,12 +38,9 @@ def controller(steering_angle_error, maximum_steering_angle,
 	Proportional_steer = Kp * steering_angle_error
 	Integral_steer = Ki * 1.0//rate * steering_angle_error
 	output_steer = Proportional_steer + Integral_steer
-
 	## Anti-Windup for integrator
 	## External actions 
-
-    if((steering_angle_error >= 0.0 and (output_steer < maximum_steering_angle or Integral_steer < 0.0)) or
-        (steering_angle_error <= 0.0 and (output_steer > -maximum_steering_angle or Integral_steer > 0.0))) and not steering_override:
+    
       	# update integrator
       	Integral_steer += Integral_steer
       	# unwind integrator if driver is operating the steering wheel
@@ -59,6 +55,7 @@ def controller(steering_angle_error, maximum_steering_angle,
        
        ## Don't run steering control if ego_velocity is low.
        if ego_velocity < 0.25 or not enabled:
+
         output_steer = 0.0
         Integral_steer = 0.0
 

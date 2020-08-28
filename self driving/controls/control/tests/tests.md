@@ -1,4 +1,5 @@
-Path Planning
+## Path Planning
+This is only the first mode of testing for the functions. This is not the final test. HIL testing yet to be done
 
 ### TO DO
 
