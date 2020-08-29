@@ -16,3 +16,8 @@ This is only the first mode of testing for the functions. This is not the final 
  - desired_polyfit and centre_probability consistent with test passing. 
  - Type Error fixed.
 
+- value prediction networks
+- hierarchial memory structure
+- episodic memory
+- attention mechanisms
+- dense traffic paper by Yann lecun
