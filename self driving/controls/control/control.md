@@ -9,7 +9,6 @@ Firstly, there is the whole vehicle control system. We need to divide the contro
 - System
 - Output
 
-
 - There's the input, then the system, then the compute and then output.
 Designing the control problem 
 
