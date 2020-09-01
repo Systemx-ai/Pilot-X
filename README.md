@@ -2,7 +2,7 @@
 
 <!-- Alignment options!!!!! -->
 <p align="center">
-  <img width="460" height="460" src="https://img.icons8.com/all/500/variable.png">
+  <img width="460" height="460" src="https://icon-library.com/images/variable-icon/variable-icon-26.jpg">
 </p>
 
 
