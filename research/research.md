@@ -31,6 +31,8 @@ We can have the driving agent memorise particular uncertainties that occur with 
  
  We need to do that, but with less data. The goal is to have the output in the realms of GPT-3, but without the 175 billion parametres or the data. 
 
-- [Model predictive policy learning](https://arxiv.org/pdf/1901.02705.pdf)
+- [Model predictive policy learning](https://arxiv.org/pdf/1901.02705.pdf). A ppaer by Lecun worthy of looking into. Here, we can have the uncertainity regularized.
+- Use Hierarchial memory networks to pay soft attention
+- learn those representations using episodic memory. 
 
 
