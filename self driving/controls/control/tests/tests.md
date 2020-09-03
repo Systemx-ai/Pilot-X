@@ -19,11 +19,11 @@ This is only the first mode of testing for the functions. This is not the final 
 ## lateral Control
 This is also only the first few modes of testing
 
-## FIXED: :heavy_check_mark:
+### FIXED: :heavy_check_mark:
 - lookahead distance is fixed.
 - curvature is fixed.
 
-## TO DO
+### TO DO
 
 - BUG FIX:- is getting into weird issues while computing the steering angle.(higher angle)
 - In controller - Integral error needs to be greater than zero. Problems may arise in case of clipping.
