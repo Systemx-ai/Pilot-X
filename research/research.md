@@ -18,7 +18,14 @@ Ways to optimize search for a better performance.
 - Have the model learn from the experience. (Also depends on, if the ground truth model of the environment is always available to the agent or not)
 - A model based method can be used.
 
-How are we going to maximise the experience from the random stochastic environment and also how do we make use of uncertainty as a potential experience and at the same time eliminate biases that can make the model behave suboptimally in the real life environments.
+### Questions
+
+### TO DO: 
+
+	- Maximise the experience from the random stochastic model.
+	- Make use of uncertainty as a potential experience
+	- eliminate biases that can make the model behave suboptimally in the real life environments.
+
 
 One of the ways that we can do it is by maximising attention. for eg:- in a language model, a transformer network uses attention mechanisms, like hard attention, soft attention, self attention and multi head attention  mechanisms, to pay attention to parts of the input. 
 
@@ -29,7 +36,7 @@ We can have the driving agent memorise particular uncertainties that occur with 
 
 -We can create a score function which can deliver the aggregate of these interactions. 
  
- We need to do that, but with less data. The goal is to have the output in the realms of GPT-3, but without the 175 billion parametres or the data. 
+The goal is to do it with less data.
 
 - [Model predictive policy learning](https://arxiv.org/pdf/1901.02705.pdf). A ppaer by Lecun worthy of looking into. Here, we can have the uncertainity regularized.
 - Use Hierarchial memory networks to pay soft attention
