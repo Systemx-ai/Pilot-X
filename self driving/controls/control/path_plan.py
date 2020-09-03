@@ -15,7 +15,9 @@ BP_lane_width = [0.0, 7.3]
 
 def compute_probability(speed, left_polyfit, right_polyfit, l_probability, r_probability):		
 	lane_width = interp(V_lane_width, BP_lane_width, speed)
-	# print(lane_width)
+	if debug:
+
+		print(lane_width)
 	half_lane = np.array([0. , 0., 0., lane_width // 2.])
 	left_path_weight = 1.
 	right_path_weight = 1.
