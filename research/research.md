@@ -20,7 +20,7 @@ Ways to optimize search for a better performance.
 
 Pros and cons of using an E2E neural networks.
 - Pro:- Can be trained over all categories using a single loss function.
-- cons:- cannot support different models.
+- cons:- cannot support different car models. We need to be able to support different car models.
 
 ### Questions
 
