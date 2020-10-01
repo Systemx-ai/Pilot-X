@@ -18,13 +18,17 @@ Ways to optimize search for a better performance.
 - Have the model learn from the experience. (Also depends on, if the ground truth model of the environment is always available to the agent or not)
 - A model based method can be used.
 
+Pros and cons of using an E2E neural networks.
+- Pro:- Can be trained over all categories using a single loss function.
+- cons:- cannot support different models.
+
 ### Questions
 
 ### TO DO: 
 
-	- Maximise the experience from the random stochastic model.
-	- Make use of uncertainty as a potential experience
-	- eliminate biases that can make the model behave suboptimally in the real life environments.
+- Maximise the experience from the random stochastic model.
+- Make use of uncertainty as a potential experience
+- eliminate biases that can make the model behave suboptimally in the real life environments.
 
 
 One of the ways that we can do it is by maximising attention. for eg:- in a language model, a transformer network uses attention mechanisms, like hard attention, soft attention, self attention and multi head attention  mechanisms, to pay attention to parts of the input. 
