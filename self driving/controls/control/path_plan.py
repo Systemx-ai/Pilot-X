@@ -15,6 +15,7 @@ BP_lane_width = [0.0, 7.3]
 
 def compute_probability(speed, left_polyfit, right_polyfit, l_probability, r_probability):		
 	lane_width = interp(V_lane_width, BP_lane_width, speed)
+	# to debug
 	if debug:
 
 		print(lane_width)
